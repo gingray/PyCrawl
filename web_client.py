@@ -1,6 +1,6 @@
 import urllib2
 
-__author__ = 'hardman'
+__author__ = 'gingray'
 
 
 class WebClient:

@@ -1,7 +1,7 @@
 import string
 from web_client import WebClient
 
-__author__ = 'hardman'
+__author__ = 'gingray'
 
 
 class FetcherBase():
