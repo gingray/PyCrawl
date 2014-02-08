@@ -43,7 +43,7 @@ class RangeFetcher(FetcherBase):
 
 
 class UrlFileFetcher(FetcherBase):
-    def __init__(self, filename, web_client, worker):
+    def __init__(self, web_client, worker, filename):
         FetcherBase.__init__(self,web_client, worker)
         f = open(filename, "r")
         self.lines = f.readlines()

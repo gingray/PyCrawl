@@ -1,1 +1,48 @@
 Simple way to fetching data over internet
+
+Example:
+```python
+from data_fetcher import RangeFetcher
+from web_client import WebClient 
+import lxml.html
+
+def worker(url, content):
+    print url
+    root = lxml.html.fromstring(content)
+    hrefs = root.xpath(".//a/@href")
+    for row in hrefs:
+        print row
+
+web_client = WebClient()
+template = "http://somesite.com/%s"
+range_parser = RangeFetcher(web_client, worker, template, 1, 3)
+range_parser.process()
+```
+
+the main idea is that you have some site with url organization like
+```
+http://somesite.com/1
+http://somesite.com/2
+http://somesite.com/3
+```
+You can set url template and range, fetcher will crawl all of them and execute worker on each of it.
+You can also use UrlFileFetcher the main idea is the same but links took from file
+
+Example:
+```python
+from data_fetcher import UrlFileFetcher
+from web_client import WebClient 
+import lxml.html
+
+def worker(url, content):
+    print url
+    root = lxml.html.fromstring(content)
+    hrefs = root.xpath(".//a/@href")
+    for row in hrefs:
+        print row
+
+web_client = WebClient()
+filename = "links.txt"
+range_parser = UrlFileFetcher(web_client, worker, filename)
+range_parser.process()
+```
