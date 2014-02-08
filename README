@@ -1,7 +1,7 @@
 Simple way to fetching data over internet
 
 Example:
-```python
+```
 from data_fetcher import RangeFetcher
 from web_client import WebClient 
 import lxml.html
@@ -29,7 +29,7 @@ You can set url template and range, fetcher will crawl all of them and execute w
 You can also use UrlFileFetcher the main idea is the same but links took from file
 
 Example:
-```python
+```
 from data_fetcher import UrlFileFetcher
 from web_client import WebClient 
 import lxml.html
